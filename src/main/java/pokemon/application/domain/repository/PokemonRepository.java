@@ -1,7 +1,7 @@
 package pokemon.application.domain.repository;
 
-import org.springframework.data.repository.CrudRepository;
 import pokemon.application.domain.entity.Pokemon;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 

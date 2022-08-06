@@ -1,7 +1,11 @@
 package pokemon.application.service;
 
-import org.springframework.stereotype.Service;
 import pokemon.application.domain.repository.PokemonRepository;
+import pokemon.application.service.dto.GamePokemon;
+import pokemon.application.service.dto.GameReport;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class GameService {
@@ -12,5 +16,7 @@ public class GameService {
         this.pokemonRepository = pokemonRepository;
     }
 
-
+    public GameReport startTheGame(List<GamePokemon> gamePokemons) {
+        return null;
+    }
 }

@@ -1,14 +1,13 @@
 package pokemon.application.service;
 
+import pokemon.application.service.dto.PokemonResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import pokemon.application.domain.entity.Pokemon;
 import pokemon.application.domain.repository.PokemonRepository;
 import pokemon.application.service.dto.GamePokemon;
-import pokemon.application.service.dto.GameReport;
 import pokemon.application.service.dto.PlayersConfig;
-import pokemon.application.service.dto.PokemonResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,11 +52,19 @@ public class PokemonService {
         return pokemonResponses;
     }
 
-    public List<GamePokemon> assemblePokemonsForGame(PlayersConfig playersConfig) {
-        return null;
+    public List<GamePokemon> assemblePokemonsForBattle(PlayersConfig playersConfig) {
+
+        List<GamePokemon> gamePokemons = new ArrayList<>();
+        GamePokemon p1gamePokemon = assemblePokemonForBattle(playersConfig.getPlayerOneChoice());
+        GamePokemon p2gamePokemon = assemblePokemonForBattle(playersConfig.getPlayerTwoChoice());
+        gamePokemons.add(p1gamePokemon);
+        gamePokemons.add(p2gamePokemon);
+
+        return gamePokemons;
     }
 
-    public GameReport startTheGame(List<GamePokemon> gamePokemons) {
-        return null;
+    private GamePokemon assemblePokemonForBattle(String playerChoice){
+        Pokemon pokemonP1 = pokemonRepository.findByName(playerChoice).get();
+        return GamePokemon.toGamePokemon(pokemonP1);
     }
 }

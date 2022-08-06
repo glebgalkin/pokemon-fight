@@ -29,4 +29,6 @@ public class Pokemon {
     public String getHeight() {
         return height;
     }
+
+    public int getHealthPoints(){return healthPoints;}
 }
