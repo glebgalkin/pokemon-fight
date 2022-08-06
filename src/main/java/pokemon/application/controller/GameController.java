@@ -1,13 +1,14 @@
 package pokemon.application.controller;
 
-import pokemon.application.service.PokemonService;
-import pokemon.application.service.dto.PokemonResponse;
+import pokemon.application.service.game.dto.Game;
+import pokemon.application.service.pokemon.PokemonService;
+import pokemon.application.service.pokemon.dto.PokemonResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pokemon.application.service.GameService;
-import pokemon.application.service.dto.GamePokemon;
-import pokemon.application.service.dto.GameReport;
-import pokemon.application.service.dto.PlayersConfig;
+import pokemon.application.service.game.GameService;
+import pokemon.application.service.game.dto.Player;
+import pokemon.application.service.game.dto.GameReport;
+import pokemon.application.service.pokemon.dto.PlayersConfig;
 
 import java.util.List;
 
@@ -31,8 +32,9 @@ public class GameController {
 
     @PostMapping("/start")
     public ResponseEntity<GameReport> setPlayers(@RequestBody PlayersConfig playersConfig){
-        List<GamePokemon> gamePokemons = pokemonService.assemblePokemonsForBattle(playersConfig);
-        GameReport gamereport = gameService.startTheGame(gamePokemons);
+        List<Player> players = gameService.assemblePlayersForBattle(playersConfig);
+        Game game = gameService.assembleTheGame(players);
+        GameReport gamereport = gameService.startTheGame(game);
         return ResponseEntity.ok(gamereport);
     }
 }

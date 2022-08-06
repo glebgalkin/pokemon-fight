@@ -1,13 +1,13 @@
-package pokemon.application.service;
+package pokemon.application.service.pokemon;
 
-import pokemon.application.service.dto.PokemonResponse;
+import pokemon.application.service.pokemon.dto.PokemonResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import pokemon.application.domain.entity.Pokemon;
 import pokemon.application.domain.repository.PokemonRepository;
-import pokemon.application.service.dto.GamePokemon;
-import pokemon.application.service.dto.PlayersConfig;
+import pokemon.application.service.game.dto.Player;
+import pokemon.application.service.pokemon.dto.PlayersConfig;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,21 +50,5 @@ public class PokemonService {
             pokemonResponses.add(PokemonResponse.toPokemonResponse(pokemon));
         }
         return pokemonResponses;
-    }
-
-    public List<GamePokemon> assemblePokemonsForBattle(PlayersConfig playersConfig) {
-
-        List<GamePokemon> gamePokemons = new ArrayList<>();
-        GamePokemon p1gamePokemon = assemblePokemonForBattle(playersConfig.getPlayerOneChoice());
-        GamePokemon p2gamePokemon = assemblePokemonForBattle(playersConfig.getPlayerTwoChoice());
-        gamePokemons.add(p1gamePokemon);
-        gamePokemons.add(p2gamePokemon);
-
-        return gamePokemons;
-    }
-
-    private GamePokemon assemblePokemonForBattle(String playerChoice){
-        Pokemon pokemonP1 = pokemonRepository.findByName(playerChoice).get();
-        return GamePokemon.toGamePokemon(pokemonP1);
     }
 }
