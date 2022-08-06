@@ -4,8 +4,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pokemon.application.model.PokemonListResponse;
 import pokemon.application.service.PokemonService;
+import pokemon.application.service.dto.PokemonResponse;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -17,9 +19,9 @@ public class GameController {
         this.pokemonService = pokemonService;
     }
 
-    @GetMapping("/check")
-    public ResponseEntity<PokemonListResponse> checkStatus() {
-        PokemonListResponse result = pokemonService.getOriginalPokemonList();
-        return ResponseEntity.ok(result);
+    @GetMapping("/pokemons")
+    public ResponseEntity<List<PokemonResponse>> getPokemons(){
+        List<PokemonResponse> pokemonList = pokemonService.getPokemons();
+        return ResponseEntity.ok(pokemonList);
     }
 }
