@@ -5,6 +5,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import pokemon.application.domain.entity.Pokemon;
 import pokemon.application.domain.repository.PokemonRepository;
+import pokemon.application.service.dto.GamePokemon;
+import pokemon.application.service.dto.GameReport;
+import pokemon.application.service.dto.PlayersConfig;
 import pokemon.application.service.dto.PokemonResponse;
 
 import java.util.ArrayList;
@@ -48,5 +51,13 @@ public class PokemonService {
             pokemonResponses.add(PokemonResponse.toPokemonResponse(pokemon));
         }
         return pokemonResponses;
+    }
+
+    public List<GamePokemon> assemblePokemonsForGame(PlayersConfig playersConfig) {
+        return null;
+    }
+
+    public GameReport startTheGame(List<GamePokemon> gamePokemons) {
+        return null;
     }
 }

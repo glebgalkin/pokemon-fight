@@ -14,6 +14,7 @@ public class Pokemon {
     private String name;
     private String weight;
     private String height;
+    public final int healthPoints = 20;
 
     public Pokemon(){};
 
