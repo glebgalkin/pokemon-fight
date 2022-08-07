@@ -1,11 +1,11 @@
-package pokemon.application.service.pokemon;
+package pokemon.challenge.service.pokemon;
 
-import pokemon.application.service.pokemon.dto.PokemonResponse;
+import pokemon.challenge.service.pokemon.dto.PokemonResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import pokemon.application.domain.entity.Pokemon;
-import pokemon.application.domain.repository.PokemonRepository;
+import pokemon.challenge.domain.entity.Pokemon;
+import pokemon.challenge.domain.repository.PokemonRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +19,9 @@ public class PokemonService {
     @Value("${pokemon.list.original}")
     private String URL;
 
+    @Value("${pokemon.list.limit}")
+    private int limit;
+
     public PokemonService(RestTemplate restTemplate, PokemonRepository pokemonRepository){
         this.restTemplate = restTemplate;
         this.pokemonRepository = pokemonRepository;
@@ -31,7 +34,7 @@ public class PokemonService {
     }
 
     private void savePokemonsToDB(){
-        for(int k=1; k<=5; k++){
+        for(int k=1; k<=limit; k++){
             String urlAddress = URL + k;
             Pokemon pokemon = restTemplate.getForObject(urlAddress, Pokemon.class);
             if(!pokemonRepository.findByName(pokemon.getName()).isPresent()){

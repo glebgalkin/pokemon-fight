@@ -1,6 +1,6 @@
-package pokemon.application.service.pokemon.dto;
+package pokemon.challenge.service.pokemon.dto;
 
-import pokemon.application.domain.entity.Pokemon;
+import pokemon.challenge.domain.entity.Pokemon;
 
 public class PokemonResponse {
 

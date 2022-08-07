@@ -1,4 +1,4 @@
-package pokemon.application.domain.entity;
+package pokemon.challenge.domain.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

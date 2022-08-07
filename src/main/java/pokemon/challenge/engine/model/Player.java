@@ -1,6 +1,6 @@
-package pokemon.application.engine.model;
+package pokemon.challenge.engine.model;
 
-import pokemon.application.domain.entity.Pokemon;
+import pokemon.challenge.domain.entity.Pokemon;
 
 public class Player {
 
@@ -14,7 +14,7 @@ public class Player {
         this.isRoundWinner = false;
     }
 
-    public static Player toGamePokemon(Pokemon pokemon) {
+    public static Player toPlayer(Pokemon pokemon) {
         return new Player(pokemon.getName(), pokemon.getHealthPoints());
     }
 

@@ -1,7 +1,7 @@
-package pokemon.application.engine;
+package pokemon.challenge.engine;
 
-import pokemon.application.engine.model.Player;
-import pokemon.application.util.EventCollector;
+import pokemon.challenge.engine.model.Player;
+import pokemon.challenge.engine.util.EventCollector;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -13,7 +13,6 @@ public class GameEngine {
     private Player player1;
     private Player player2;
     private int round;
-    private String gameWinner;
     HashMap<String, Player> roundWinners;
     private EventCollector eventCollector;
 
@@ -21,9 +20,34 @@ public class GameEngine {
         this.player1 = player1;
         this.player2 = player2;
         this.round = 0;
-
-        this.gameWinner = null;
         eventCollector = new EventCollector();
+        this.roundWinners = new HashMap<>();
+    }
+
+    public EventCollector startTheGame(){
+        boolean gameWinnerFound = false;
+
+        while(!gameWinnerFound){
+            preparePlayersForRound();
+            Queue<Player> playersQueue = generatePlayerOrder();
+            Player player = startRoundBattle(playersQueue);
+            eventCollector.reportRoundWinner(player.getName());
+            if(roundWinners.get(player.getName())!=null){
+                gameWinnerFound = true;
+                eventCollector.reportGameWinner(player.getName());
+            } else {
+                roundWinners.put(player.getName(), player);
+            }
+        }
+
+        return eventCollector;
+    }
+
+    private void preparePlayersForRound(){
+        player1.setHealthPoints(20);
+        player2.setHealthPoints(20);
+        player1.setRoundWinner(false);
+        player2.setRoundWinner(false);
     }
 
     public Queue<Player> generatePlayerOrder(){
@@ -44,49 +68,24 @@ public class GameEngine {
     public Player startRoundBattle(Queue<Player> playersQueue){
         round++;
         eventCollector.reportRoundNumber(round);
-        boolean winnerFound = false;
+
         Player roundWinner = null;
-        while(!winnerFound){
+        boolean roundWinnerFound = false;
+
+        while(!roundWinnerFound){
             Player player = playersQueue.poll();
-            generateAttack(player, playersQueue.peek());
+            generateAttackType(player, playersQueue.peek());
             if(player.isRoundWinner()){
                 roundWinner = player;
-                winnerFound = true;
+                roundWinnerFound = true;
             } else{
                 playersQueue.offer(player);
             }
-
         }
         return roundWinner;
     }
 
-    public EventCollector startTheGame(){
-        boolean winnerFound = false;
-        this.roundWinners = new HashMap<>();
-        while(!winnerFound){
-            preparePlayersForRound();
-            Queue<Player> playersQueue = generatePlayerOrder();
-            Player player = startRoundBattle(playersQueue);
-            eventCollector.reportRoundWinner(player.getName());
-            if(roundWinners.get(player.getName())!=null){
-                winnerFound = true;
-                eventCollector.reportGameWinner(player.getName());
-            } else {
-                roundWinners.put(player.getName(), player);
-            }
-        }
-
-        return eventCollector;
-    }
-
-    private void preparePlayersForRound(){
-        player1.setHealthPoints(20);
-        player2.setHealthPoints(20);
-        player1.setRoundWinner(false);
-        player2.setRoundWinner(false);
-    }
-
-    public void generateAttack(Player attacker, Player otherPlayer) {
+    public void generateAttackType(Player attacker, Player otherPlayer) {
         Random rand = new Random();
         int probability = rand.nextInt(101);
         if(probability < 70){
