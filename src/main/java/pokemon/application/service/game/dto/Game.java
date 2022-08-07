@@ -1,5 +1,9 @@
 package pokemon.application.service.game.dto;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import pokemon.application.util.EventCollector;
+
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
@@ -9,9 +13,8 @@ public class Game {
     private Player player1;
     private Player player2;
     private int round;
-    private int normalAttack;
-    private int specialAttack;
     private String gameWinner;
+    HashMap<String, Player> roundWinners;
 
     public Game(Player player1, Player player2) {
         this.player1 = player1;
@@ -44,22 +47,6 @@ public class Game {
         this.round = round;
     }
 
-    public int getNormalAttack() {
-        return normalAttack;
-    }
-
-    public void setNormalAttack(int normalAttack) {
-        this.normalAttack = normalAttack;
-    }
-
-    public int getSpecialAttack() {
-        return specialAttack;
-    }
-
-    public void setSpecialAttack(int specialAttack) {
-        this.specialAttack = specialAttack;
-    }
-
     public String getGameWinner() {
         return gameWinner;
     }
@@ -68,45 +55,56 @@ public class Game {
         this.gameWinner = gameWinner;
     }
 
-    public void startTheRound(){
-        this.round ++;
-
-        Queue<Player> playerQueue = generateQueue();
-        
-
-    }
-
     public Queue<Player> generateQueue(){
         Queue<Player> playersQueue = new LinkedList<>();
         Random rand = new Random();
         int randomNum = rand.nextInt(2) + 1;
 
         if(randomNum == 1){
-            playersQueue.offer(player1);
-            playersQueue.offer(player2);
+            playersQueue.offer(this.player1);
+            playersQueue.offer(this.player2);
         } else {
-            playersQueue.offer(player2);
-            playersQueue.offer(player1);
+            playersQueue.offer(this.player2);
+            playersQueue.offer(this.player1);
         }
         return playersQueue;
     }
     
     public Player startRoundBattle(Queue<Player> playersQueue){
+        this.round++;
+        System.out.println("ROUND: " + this.round);
         boolean winnerFound = false;
-        Player roundWinner = new Player();
+        Player roundWinner = null;
         while(!winnerFound){
             Player player = playersQueue.poll();
-            if(playersQueue.peek().isRoundWinner()){
-                winnerFound = true;
-                player.setRoundsWon(player.getRoundsWon()+1);
-                System.out.println("Player " + player.getName() + " has won the round." + " Ended up with health: " + player.getHealthPoints()
-                        + "while other player" + playersQueue.peek().getName()+ " health is: " + playersQueue.peek().getHealthPoints());
+            player.defaultAttack(playersQueue.peek());
+            if(player.isRoundWinner()){
                 roundWinner = player;
+                winnerFound = true;
             } else{
-                player.defaultAttack(playersQueue.peek());
                 playersQueue.offer(player);
             }
+
         }
         return roundWinner;
+    }
+
+    public void startTheGame(){
+        boolean winnerFound = false;
+        this.roundWinners = new HashMap<>();
+        while(!winnerFound){
+            this.player1.setHealthPoints(20);
+            this.player2.setHealthPoints(20);
+            this.player1.setRoundWinner(false);
+            this.player2.setRoundWinner(false);
+            Queue<Player> playersQueue = this.generateQueue();
+            Player player = this.startRoundBattle(playersQueue);
+            if(roundWinners.get(player.getName())!=null){
+                winnerFound = true;
+                System.out.println("The winner is: " + player.getName());
+            } else {
+                roundWinners.put(player.getName(), player);
+            }
+        }
     }
 }

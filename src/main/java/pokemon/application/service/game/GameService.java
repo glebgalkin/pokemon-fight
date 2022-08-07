@@ -4,12 +4,13 @@ import pokemon.application.domain.entity.Pokemon;
 import pokemon.application.domain.repository.PokemonRepository;
 import pokemon.application.service.game.dto.Game;
 import pokemon.application.service.game.dto.Player;
-import pokemon.application.service.game.dto.GameReport;
+import pokemon.application.util.EventCollector;
 import org.springframework.stereotype.Service;
 import pokemon.application.service.pokemon.dto.PlayersConfig;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
 
 @Service
 public class GameService {
@@ -43,17 +44,19 @@ public class GameService {
         return new Game(player1, player2);
     }
 
-    public GameReport startTheGame(Game game) {
+    public EventCollector startTheGame(Game game) {
 
         boolean winnerFound = false;
 
-//        while(!winnerFound){
-//
-//
-//        }
+        while(!winnerFound){
+            Queue<Player> playersQueue = game.generateQueue();
+            Player player = game.startRoundBattle(playersQueue);
+            if (player.getRoundsWon() == 2){
+                winnerFound = true;
+                System.out.println("Match winner is " + player.getName());
+            }
+        }
         return  null;
     }
-
-    //private
 
 }
