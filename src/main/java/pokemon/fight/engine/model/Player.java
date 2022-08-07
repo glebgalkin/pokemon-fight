@@ -1,6 +1,6 @@
-package pokemon.challenge.engine.model;
+package pokemon.fight.engine.model;
 
-import pokemon.challenge.domain.entity.Pokemon;
+import pokemon.fight.domain.entity.Pokemon;
 
 public class Player {
 

@@ -1,6 +1,6 @@
-package pokemon.challenge.domain.repository;
+package pokemon.fight.domain.repository;
 
-import pokemon.challenge.domain.entity.Pokemon;
+import pokemon.fight.domain.entity.Pokemon;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;

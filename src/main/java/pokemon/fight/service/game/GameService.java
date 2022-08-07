@@ -1,12 +1,12 @@
-package pokemon.challenge.service.game;
+package pokemon.fight.service.game;
 
-import pokemon.challenge.domain.entity.Pokemon;
-import pokemon.challenge.domain.repository.PokemonRepository;
+import pokemon.fight.domain.entity.Pokemon;
+import pokemon.fight.domain.repository.PokemonRepository;
 import org.springframework.stereotype.Service;
-import pokemon.challenge.engine.GameEngine;
-import pokemon.challenge.engine.model.Player;
-import pokemon.challenge.service.pokemon.dto.PlayersConfig;
-import pokemon.challenge.engine.util.EventCollector;
+import pokemon.fight.engine.GameEngine;
+import pokemon.fight.engine.model.Player;
+import pokemon.fight.service.pokemon.dto.PlayersConfig;
+import pokemon.fight.engine.util.EventCollector;
 
 @Service
 public class GameService {

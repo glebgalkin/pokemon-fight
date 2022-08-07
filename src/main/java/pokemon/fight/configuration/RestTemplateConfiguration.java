@@ -1,4 +1,4 @@
-package pokemon.challenge.configuration;
+package pokemon.fight.configuration;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;

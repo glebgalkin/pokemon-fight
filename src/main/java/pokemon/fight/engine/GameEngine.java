@@ -1,7 +1,7 @@
-package pokemon.challenge.engine;
+package pokemon.fight.engine;
 
-import pokemon.challenge.engine.model.Player;
-import pokemon.challenge.engine.util.EventCollector;
+import pokemon.fight.engine.model.Player;
+import pokemon.fight.engine.util.EventCollector;
 
 import java.util.HashMap;
 import java.util.LinkedList;

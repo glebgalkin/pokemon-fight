@@ -1,4 +1,4 @@
-package pokemon.challenge;
+package pokemon.fight;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

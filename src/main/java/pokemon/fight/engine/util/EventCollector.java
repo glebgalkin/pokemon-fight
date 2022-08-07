@@ -1,6 +1,6 @@
-package pokemon.challenge.engine.util;
+package pokemon.fight.engine.util;
 
-import pokemon.challenge.engine.model.Player;
+import pokemon.fight.engine.model.Player;
 
 import java.util.ArrayList;
 

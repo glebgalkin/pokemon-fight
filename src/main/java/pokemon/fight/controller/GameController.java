@@ -1,13 +1,13 @@
-package pokemon.challenge.controller;
+package pokemon.fight.controller;
 
 import org.springframework.http.HttpStatus;
-import pokemon.challenge.service.pokemon.PokemonService;
-import pokemon.challenge.service.pokemon.dto.PlayersConfig;
-import pokemon.challenge.service.pokemon.dto.PokemonResponse;
+import pokemon.fight.service.pokemon.PokemonService;
+import pokemon.fight.service.pokemon.dto.PlayersConfig;
+import pokemon.fight.service.pokemon.dto.PokemonResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pokemon.challenge.service.game.GameService;
-import pokemon.challenge.engine.util.EventCollector;
+import pokemon.fight.service.game.GameService;
+import pokemon.fight.engine.util.EventCollector;
 
 import java.util.List;
 import java.util.NoSuchElementException;

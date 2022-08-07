@@ -1,4 +1,4 @@
-package pokemon.challenge.service.pokemon.dto;
+package pokemon.fight.service.pokemon.dto;
 
 public class PlayersConfig {
     private String playerOneChoice;

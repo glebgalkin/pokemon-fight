@@ -1,11 +1,11 @@
-package pokemon.challenge.service.pokemon;
+package pokemon.fight.service.pokemon;
 
-import pokemon.challenge.service.pokemon.dto.PokemonResponse;
+import pokemon.fight.service.pokemon.dto.PokemonResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import pokemon.challenge.domain.entity.Pokemon;
-import pokemon.challenge.domain.repository.PokemonRepository;
+import pokemon.fight.domain.entity.Pokemon;
+import pokemon.fight.domain.repository.PokemonRepository;
 
 import java.util.ArrayList;
 import java.util.List;
