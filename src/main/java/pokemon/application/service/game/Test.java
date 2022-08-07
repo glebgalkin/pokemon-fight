@@ -1,19 +1,21 @@
 package pokemon.application.service.game;
 
-import pokemon.application.service.game.dto.Game;
-import pokemon.application.service.game.dto.Player;
-
-import java.util.Queue;
+import pokemon.application.engine.GameEngine;
+import pokemon.application.engine.model.Player;
+import pokemon.application.util.EventCollector;
 
 public class Test {
     public static void main(String[] args){
-//        Player player1 = new Player("Viking" +
-//                "", 20);
-//        Player player2 = new Player("Spider-Man", 20);
-//
-//        Game game = new Game(player1, player2);
-//        game.startTheGame();
 
-            System.out.print(7/2 + " " + (7-(7/2)));
+
+        Player player1 = new Player("Viking", 20);
+        Player player2 = new Player("Spider-Man", 20);
+
+        GameEngine gameEngine = new GameEngine(player1, player2);
+        EventCollector eventCollector = gameEngine.startTheGame();
+
+        for(String k : eventCollector){
+            System.out.println(k);
+        }
     }
 }

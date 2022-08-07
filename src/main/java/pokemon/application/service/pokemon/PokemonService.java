@@ -6,8 +6,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import pokemon.application.domain.entity.Pokemon;
 import pokemon.application.domain.repository.PokemonRepository;
-import pokemon.application.service.game.dto.Player;
-import pokemon.application.service.pokemon.dto.PlayersConfig;
 
 import java.util.ArrayList;
 import java.util.List;
