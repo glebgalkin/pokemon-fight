@@ -18,6 +18,17 @@ public class PokemonResponse {
         return pokemonResponse;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public String getHeight() {
+        return height;
+    }
 
     public void setName(String name) {
         this.name = name;
