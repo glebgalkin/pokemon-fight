@@ -4,7 +4,10 @@ Pokemon fight is a challenge game made by Bell Media developers for potential em
 ## Game Rules
 Two players join the fight. Each of them can select a pokemon from the list. The list must present the following attributes of each available character: name, height and weight. As of beginning of the game and each round every character has **twenty health points** (HP) as a default. Once characters are chosen, the automatic battle between them begins. *The first who wins two battle rounds is considered the winner*. There are two possible attacks: **normal** and **special**. *Normal attack* has a *damage between one to ten health points* while *special attacks takes 2 turns and executes from 5 to 15 points of damage*. When match ends a winner must be displayed. Both players must be able to restart the battle with the same characters or switch to new pokemons. 
 ## Demo
-### Get list of Pokemons
+### Get list of Pokemons:
+![]https://github.com/glebgalkin/pokemon-fight/blob/master/media/getPokemons.gif
+
+### Start the game and generate the report:
 ![alt-text](https://github.com/glebgalkin/pokemon-fight/blob/master/media/game.gif)
 
 
