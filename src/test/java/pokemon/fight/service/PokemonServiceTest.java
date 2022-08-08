@@ -48,8 +48,6 @@ public class PokemonServiceTest {
     }
 
     public void setUpMocks(){
-        BDDMockito.willReturn(pokemon).given(restTemplate).getForObject(URL_ADDRESS, Pokemon.class);
-        BDDMockito.willReturn(Optional.of(pokemon)).given(pokemonRepository).findByName(POKEMON_NAME);
         BDDMockito.willReturn(iterable).given(pokemonRepository).findAll();
     }
 
