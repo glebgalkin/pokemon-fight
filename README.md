@@ -10,8 +10,10 @@ Two players join the fight. Each of them can select a pokemon from the list. The
 The giph below describe how client first sends the GET request to a server and recieves the response as pokemon character list.
 ![](https://github.com/glebgalkin/pokemon-fight/blob/master/media/getPokemons.gif)
 
+
 ### Start the game and generate the report:
-Client creates a POST request and provides players' choices in the body. As a response it receives the report of a whole battle step-by-step. 
+Client creates a POST request and provides players' choices in the body. 
+As a response it receives the report of a whole battle step-by-step. 
 ![alt-text](https://github.com/glebgalkin/pokemon-fight/blob/master/media/game.gif)
 
 ### Bonus
