@@ -24,12 +24,11 @@ As seen in the second request, it is possible to change the characters after eve
 Some test explanation goes here.
 
 ## Conclusion
-Pokemon fight game is a great creative way to demonstrate Spring Boot experience for employees wishing to become a part of Bell Media. Along with positive outcome there is always a room for growth and improvements that could be planned developed and implemented in the future. 
+Pokemon fight game is a great creative way to demonstrate Spring Boot experience for employees wishing to become a part of Bell Media. I would like to geniunly thank Bell Media for an opportunity to demonstrate my knowledge. Along with positive outcome there is always a room for growth and improvements that could be planned developed and implemented in the future. 
 
 ## Future Improvements
-### Find a way to reduce the weight time when sending 50 requests. 
-Some txt goes here
-### Cleaner code.
-Some explanation here
-
+### Scalability 
+Higher amount of requests sent to PokeAPI will cause a significant increase of a wait time for a client. There must be an optimal solution to run portions of calls simultaneously. Perhaps, splitting amount of required calls into multiple threads might show the decrease of a wait time, however the more research and knowledge required from my end. 
+### Better design approach
+The game engine class seems to have a lot of functionality. It is worth of mentioning that some of the functions could be decomposed into separate components. However, in a time and deadline that was given to me the current implementation was the best of my ability. 
 
