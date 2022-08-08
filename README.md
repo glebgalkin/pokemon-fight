@@ -1,3 +1,5 @@
+![](https://www.logo.wine/logo/Bell_Media)
+
 # Pokemon Fight
 ## Introduction
 Pokemon fight is a challenge game made by Bell Media developers for potential employees. The goal of this challenge is to test new developers' technical skills and knowledge of **Spring Boot** Java framework. The game involves two players who can pick pokemons and battle each other. Under the hood the backend makes an api call to [PokeAPI](https://pokeapi.co/), gets the list of pokemons, assembles them in a proper format for the game and displays the list characters who are ready for a battle. Afterwards, a client HTTP request is sent with players' choices as a JSON object in the body. Backend receives the request, validates the data, assembles the game with provided choices and calls the **game engine that starts the show**. When battle between two characters comes to an end backend generates the collection containing all events (an event report) and sends the report back to client. 
