@@ -1,4 +1,4 @@
-![alt-text](https://www.seekpng.com/png/detail/790-7907996_bell-media-logo-png-bell-media-canada-logo.png)
+<img src="https://www.seekpng.com/png/detail/790-7907996_bell-media-logo-png-bell-media-canada-logo.png" width="128"/>
 
 # Pokemon Fight
 ## Introduction
