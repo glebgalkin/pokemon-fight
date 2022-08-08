@@ -10,4 +10,11 @@ public class PlayersConfig {
 
     public String getPlayerTwoChoice() {return playerTwoChoice;}
 
+    public void setPlayerOneChoice(String playerOneChoice) {
+        this.playerOneChoice = playerOneChoice;
+    }
+
+    public void setPlayerTwoChoice(String playerTwoChoice) {
+        this.playerTwoChoice = playerTwoChoice;
+    }
 }

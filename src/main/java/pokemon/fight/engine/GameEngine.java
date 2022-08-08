@@ -85,7 +85,7 @@ public class GameEngine {
         return roundWinner;
     }
 
-    public void generateAttackType(Player attacker, Player otherPlayer) {
+    private void generateAttackType(Player attacker, Player otherPlayer) {
         Random rand = new Random();
         int probability = rand.nextInt(101);
         if(probability < 70){

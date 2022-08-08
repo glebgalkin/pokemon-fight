@@ -31,7 +31,7 @@ public class GameController {
     }
 
     @PostMapping("/start")
-    public ResponseEntity<EventCollector> setPlayers(@RequestBody PlayersConfig playersConfig){
+    public ResponseEntity<EventCollector> runTheGame(@RequestBody PlayersConfig playersConfig){
         try{
             EventCollector gameReport = gameService.assembleAndStartTheGame(playersConfig);
             return ResponseEntity.ok(gameReport);

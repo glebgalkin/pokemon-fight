@@ -29,8 +29,7 @@ public class PokemonService {
 
     public List<PokemonResponse> getPokemons(){
         savePokemonsToDB();
-        List<PokemonResponse> pokemonResponses = assembleResponse();
-        return pokemonResponses;
+        return assembleResponse();
     }
 
     private void savePokemonsToDB(){
@@ -44,10 +43,9 @@ public class PokemonService {
     }
 
     private List<PokemonResponse> assembleResponse(){
-        List<Pokemon> pokemons = (List<Pokemon>) pokemonRepository.findAll();
-
+        List<Pokemon> iterable = (List<Pokemon>) pokemonRepository.findAll();
         List<PokemonResponse> pokemonResponses = new ArrayList<>();
-        for(Pokemon pokemon : pokemons){
+        for(Pokemon pokemon : iterable){
             pokemonResponses.add(PokemonResponse.toPokemonResponse(pokemon));
         }
         return pokemonResponses;
