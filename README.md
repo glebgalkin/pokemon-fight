@@ -1,4 +1,4 @@
-![alt-text]([https://www.logo.wine/logo/Bell_Media](https://www.seekpng.com/png/detail/790-7907996_bell-media-logo-png-bell-media-canada-logo.png))
+![alt-text](https://www.seekpng.com/png/detail/790-7907996_bell-media-logo-png-bell-media-canada-logo.png)
 
 # Pokemon Fight
 ## Introduction
