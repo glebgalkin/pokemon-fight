@@ -21,7 +21,8 @@ As a response it receives the report of a whole battle, step-by-step.
 As seen in the second request, it is possible to change the characters after every battle or keep them the same. The initial list of pokemons is saved in **MySQL** database, therefore,as long as the client puts the proper choices in the body of a POST request the game will be generated. In case of improper request body the server returns a **Bad Request (400)** response.
 
 ## Testing
-Some test explanation goes here.
+JUnit testing framework is used to test the functionality of RESTful API and game engine:
+![alt text](https://github.com/glebgalkin/pokemon-fight/blob/master/media/tests.png)
 
 ## Conclusion
 Pokemon fight game is a great creative way to demonstrate Spring Boot experience for employees wishing to become a part of Bell Media. I would like to geniunly thank Bell Media for an opportunity to demonstrate my knowledge. Along with positive outcome there is always a room for growth and improvements that could be planned developed and implemented in the future. 
