@@ -18,7 +18,7 @@ As a response it receives the report of a whole battle, step-by-step.
 ![alt-text](https://github.com/glebgalkin/pokemon-fight/blob/master/media/game.gif)
 
 ### Bonus
-As seen in the second request, it is possible to change the characters after every battle or keep them the same. The initial list of pokemons is saved in **MySQL** database, therefore,as long as the client puts the proper choices in the body of a POST request the game will be generated. In case of improper request body the server returns a **Bad Request(400)** response.
+As seen in the second request, it is possible to change the characters after every battle or keep them the same. The initial list of pokemons is saved in **MySQL** database, therefore,as long as the client puts the proper choices in the body of a POST request the game will be generated. In case of improper request body the server returns a **Bad Request (400)** response.
 
 ## Testing
 Some test explanation goes here.
